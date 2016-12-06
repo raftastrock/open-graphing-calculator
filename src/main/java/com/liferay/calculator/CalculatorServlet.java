@@ -10,15 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 public class CalculatorServlet extends HttpServlet{
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
-		throws IOException{
+		throws IOException {
 
 		PrintWriter out = response.getWriter();
 
-		out.println("<html>");
-		out.println("<body>");
 		out.println("Hello, world.");
-		out.println("</body>");
-		out.println("</html>");
 	}
 
 }
