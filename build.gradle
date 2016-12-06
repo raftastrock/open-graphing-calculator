@@ -1,4 +1,5 @@
 apply plugin: "java"
+apply plugin: "jetty"
 apply plugin: "war"
 
 repositories {
@@ -6,5 +7,5 @@ repositories {
 }
 
 dependencies {
-     compile "javax.servlet:servlet-api:2.5"
+     providedCompile "javax.servlet:javax.servlet-api:3.0.1"
 }
