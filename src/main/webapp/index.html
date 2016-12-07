@@ -167,6 +167,14 @@
 				if (this.classList.contains('alpha-function')) {
 					keypadWrapper.classList.toggle('alpha-toggle');
 
+					for (var i = 0; i < keys.length; i++) {
+						if (keys[i].getAttribute('data-alpha') && (keys[i].innerHTML != keys[i].getAttribute('data-alpha'))) {
+							keys[i].innerHTML = keys[i].getAttribute('data-alpha');
+						} else {
+							keys[i].innerHTML = keys[i].getAttribute('data-primary');
+						}
+					}
+
 					console.log("added alpha function");
 				}
 			});
