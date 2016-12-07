@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Calculator</title>
-	</head>
-	<body>
 		<style>
 			#calculatorWrapper {
 				background: dimgrey;
@@ -30,18 +27,28 @@
 				background: mediumslateblue;
 			}
 
+			#keypad {
+				font-family: "Arial Narrow", Arial, sans-serif;
+				font-weight: 500;
+				letter-spacing: -0.04em;
+			}
+
+			#keypad .graphing {
+				font-size: 0.8em;
+			}
+
 			#keypad .key {
 				background: darkslategrey;
 				border-radius: 5px;
+				box-sizing: border-box;
 				color: #FFF;
 				cursor: pointer;
 				display: inline-block;
-				min-width: 40px;
 				margin: 2px 0px;
+				min-width: 40px;
 				padding: 2px 5px;
 				text-align: center;
 				width: 18%;
-				box-sizing: border-box;
 			}
 
 			#keypad .key.second-function {
@@ -71,6 +78,9 @@
 				color: gray;
 			}
 		</style>
+		<title>Calculator</title>
+	</head>
+	<body>
 		<div id="calculatorWrapper">
 			<div id="screen">
 				2*2
@@ -90,7 +100,7 @@
 						<div class="key" data-primary="MODE" data-secondary="QUIT" data-alpha="">MODE</div>
 						<div class="key" data-primary="DEL" data-secondary="INS" data-alpha="">DEL</div>
 						<div class="key alpha-function" data-primary="ALPHA" data-secondary="A-LOCK" data-alpha="">ALPHA</div>
-						<div class="key" data-primary="X,T,0,n" data-secondary="LINK" data-alpha="">X,T,0,n</div>
+						<div class="key" data-primary="X,T,&theta;,&#119899;" data-secondary="LINK" data-alpha="">X,T,&theta;,&#119899;</div>
 						<div class="key" data-primary="STAT" data-secondary="LIST" data-alpha="">STAT</div>
 					</div>
 					<div class="navigation">
@@ -107,30 +117,37 @@
 					<div class="key" data-primary="VARS" data-secondary="DISTR" data-alpha="">VARS</div>
 					<div class="key" data-primary="CLEAR" data-secondary="" data-alpha="">CLEAR</div>
 				</div>
+				<div class="trigonometry">
+					<div class="key" data-primary="x&#8315;&sup1;" data-secondary="MATRX" data-alpha="D">x&#8315;&sup1;</div>
+					<div class="key" data-primary="SIN" data-secondary="SIN&#8315;&sup1;" data-alpha="E">SIN</div>
+					<div class="key" data-primary="COS" data-secondary="COS&#8315;&sup1;" data-alpha="F">COS</div>
+					<div class="key" data-primary="TAN" data-secondary="TAN&#8315;&sup1;" data-alpha="G">TAN</div>
+					<div class="key" data-primary="^" data-secondary="&pi;" data-alpha="H">^</div>
+				</div>
 				<div class="standard-calculator">
-					<div class="key" data-primary="x^2" data-secondary="√" data-alpha="I">x^2</div>
+					<div class="key" data-primary="x&sup2;" data-secondary="√" data-alpha="I">x&sup2;</div>
 					<div class="key" data-primary="," data-secondary="EE" data-alpha="J">,</div>
 					<div class="key" data-primary="(" data-secondary="{" data-alpha="K">(</div>
 					<div class="key" data-primary=")" data-secondary="}" data-alpha="L">)</div>
 					<div class="key blue-key" data-primary="÷" data-secondary="e" data-alpha="M">÷</div>
-					<div class="key" data-primary="LOG" data-secondary="10^x" data-alpha="N">LOG</div>
+					<div class="key" data-primary="LOG" data-secondary="10ˣ" data-alpha="N">LOG</div>
 					<div class="key" data-primary="7" data-secondary="u" data-alpha="O">7</div>
 					<div class="key" data-primary="8" data-secondary="v" data-alpha="P">8</div>
 					<div class="key" data-primary="9" data-secondary="w" data-alpha="Q">9</div>
 					<div class="key blue-key" data-primary="x" data-secondary="[" data-alpha="R">x</div>
-					<div class="key" data-primary="LN" data-secondary="e^x" data-alpha="S">LN</div>
+					<div class="key" data-primary="LN" data-secondary="eˣ" data-alpha="S">LN</div>
 					<div class="key" data-primary="4" data-secondary="L4" data-alpha="T">4</div>
 					<div class="key" data-primary="5" data-secondary="L5" data-alpha="U">5</div>
 					<div class="key" data-primary="6" data-secondary="L6" data-alpha="V">6</div>
-					<div class="key blue-key" data-primary="-" data-secondary="]" data-alpha="W">-</div>
-					<div class="key" data-primary="STO ->" data-secondary="ACL" data-alpha="X">STO -></div>
+					<div class="key blue-key" data-primary="&minus;" data-secondary="]" data-alpha="W">&minus;</div>
+					<div class="key" data-primary="STO &#10151;" data-secondary="RCL" data-alpha="X">STO &#10151;</div>
 					<div class="key" data-primary="1" data-secondary="L1" data-alpha="Y">1</div>
 					<div class="key" data-primary="2" data-secondary="L2" data-alpha="Z">2</div>
-					<div class="key" data-primary="3" data-secondary="L3" data-alpha="A">3</div>
+					<div class="key" data-primary="3" data-secondary="L3" data-alpha="&theta;">3</div>
 					<div class="key blue-key" data-primary="+" data-secondary="MEM" data-alpha='"'>+</div>
 					<div class="key" data-primary="ON" data-secondary="OFF" data-alpha="">ON</div>
 					<div class="key" data-primary="0" data-secondary="CATALOG" data-alpha="␣">0</div>
-					<div class="key" data-primary="." data-secondary="i" data-alpha=":">.</div>
+					<div class="key" data-primary="." data-secondary="&#119894;" data-alpha=":">.</div>
 					<div class="key" data-primary="(-)" data-secondary="ANS" data-alpha="?">(-)</div>
 					<div id="ajaxButton" class="key blue-key" data-primary="ENTER" data-secondary="ENTRY" data-alpha="SOLVE">ENTER</div>
 				</div>
@@ -147,11 +164,12 @@
 					if (this.classList.contains('second-function')) {
 						keypadWrapper.classList.toggle('secondary-toggle');
 
-						for (var i = 0; i < keys.length; i++) {
-							if (keys[i].getAttribute('data-secondary') && (keys[i].innerHTML != keys[i].getAttribute('data-secondary'))) {
-								keys[i].innerHTML = keys[i].getAttribute('data-secondary');
-							} else {
-								keys[i].innerHTML = keys[i].getAttribute('data-primary');
+						for (var j = 0; j < keys.length; j++) {
+							if (keys[j].getAttribute('data-secondary') && (keys[j].innerHTML != keys[j].getAttribute('data-secondary'))) {
+								keys[j].innerHTML = keys[j].getAttribute('data-secondary');
+							}
+							else {
+								keys[j].innerHTML = keys[j].getAttribute('data-primary');
 							}
 						}
 					}
@@ -159,11 +177,12 @@
 					if (this.classList.contains('alpha-function')) {
 						keypadWrapper.classList.toggle('alpha-toggle');
 
-						for (var i = 0; i < keys.length; i++) {
-							if (keys[i].getAttribute('data-alpha') && (keys[i].innerHTML != keys[i].getAttribute('data-alpha'))) {
-								keys[i].innerHTML = keys[i].getAttribute('data-alpha');
-							} else {
-								keys[i].innerHTML = keys[i].getAttribute('data-primary');
+						for (var j = 0; j < keys.length; j++) {
+							if (keys[j].getAttribute('data-alpha') && (keys[j].innerHTML != keys[j].getAttribute('data-alpha'))) {
+								keys[j].innerHTML = keys[j].getAttribute('data-alpha');
+							}
+							else {
+								keys[j].innerHTML = keys[j].getAttribute('data-primary');
 							}
 						}
 					}
@@ -194,14 +213,13 @@
 				function alertContents() {
 					if (httpRequest.readyState === XMLHttpRequest.DONE) {
 						if (httpRequest.status === 200) {
-							screen.innerHTML = httpRequest.responseText;
+                            screen.innerHTML = httpRequest.responseText;
 						} else {
 							alert('There was a problem with the request.');
 						}
 					}
 				}
 			})();
-
 		</script>
 	</body>
 </html>
