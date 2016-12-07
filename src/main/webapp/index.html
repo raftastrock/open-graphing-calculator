@@ -128,7 +128,7 @@
 					<div class="key blue-key" data-primary="APPS" data-secondary="ANGLE" data-alpha="B" data-type="menu">APPS</div>
 					<div class="key" data-primary="PRGM" data-secondary="DRAW" data-alpha="C" data-type="menu">PRGM</div>
 					<div class="key" data-primary="VARS" data-secondary="DISTR" data-alpha="" data-type="menu">VARS</div>
-					<div class="key" data-primary="CLEAR" data-secondary="" data-alpha="" data-type="control">CLEAR</div>
+					<div class="key clear" data-primary="CLEAR" data-secondary="" data-alpha="" data-type="control">CLEAR</div>
 				</div>
 				<div class="trigonometry">
 					<div class="key" data-primary="x&#8315;&sup1;" data-secondary="MATRX" data-alpha="D" data-primary-content="&#8315;&sup1;">x&#8315;&sup1;</div>
@@ -171,6 +171,10 @@
 			var keypadWrapper = document.querySelector('#keypad');
 			var screenElement = document.querySelector('.entry-text');
 
+            function clearScreen() {
+                screenElement.innerHTML = '';
+            }
+
 			for (var i = 0; i < keys.length; i++) {
 				keys[i].addEventListener('click', function(event) {
 					this.classList.toggle('clicked');
@@ -200,6 +204,10 @@
 							}
 						}
 					}
+
+					if (this.classList.contains('clear')){
+                        clearScreen();
+                    }
 
 					var buttonType = this.getAttribute('data-type');
 
