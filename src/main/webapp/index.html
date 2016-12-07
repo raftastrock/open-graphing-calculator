@@ -92,34 +92,34 @@
 
 			<div id="keypad">
 				<div class="graphing">
-					<div class="key" data-primary="Y=" data-secondary="STAT PLOT" data-alpha="F1">Y=</div>
-					<div class="key" data-primary="WINDOW" data-secondary="TBLSET" data-alpha="F2">WINDOW</div>
-					<div class="key" data-primary="ZOOM" data-secondary="FORMAT" data-alpha="F3">ZOOM</div>
-					<div class="key" data-primary="TRACE" data-secondary="CALC" data-alpha="F4">TRACE</div>
-					<div class="key" data-primary="GRAPH" data-secondary="TABLE" data-alpha="F5">GRAPH</div>
+					<div class="key" data-primary="Y=" data-secondary="STAT PLOT" data-alpha="F1" data-type="menu">Y=</div>
+					<div class="key" data-primary="WINDOW" data-secondary="TBLSET" data-alpha="F2" data-type="menu">WINDOW</div>
+					<div class="key" data-primary="ZOOM" data-secondary="FORMAT" data-alpha="F3" data-type="menu">ZOOM</div>
+					<div class="key" data-primary="TRACE" data-secondary="CALC" data-alpha="F4" data-type="menu">TRACE</div>
+					<div class="key" data-primary="GRAPH" data-secondary="TABLE" data-alpha="F5" data-type="menu">GRAPH</div>
 				</div>
 				<div class="editing">
 					<div class="edit-keys">
 						<div class="key second-function" data-primary="2nd" data-secondary="" data-alpha="">2nd</div>
-						<div class="key" data-primary="MODE" data-secondary="QUIT" data-alpha="">MODE</div>
-						<div class="key" data-primary="DEL" data-secondary="INS" data-alpha="">DEL</div>
-						<div class="key alpha-function" data-primary="ALPHA" data-secondary="A-LOCK" data-alpha="">ALPHA</div>
+						<div class="key" data-primary="MODE" data-secondary="QUIT" data-alpha="" data-type="menu">MODE</div>
+						<div class="key" data-primary="DEL" data-secondary="INS" data-alpha="" data-type="control">DEL</div>
+						<div class="key alpha-function" data-primary="ALPHA" data-secondary="A-LOCK" data-alpha="" data-type="control">ALPHA</div>
 						<div class="key" data-primary="X,T,&theta;,&#119899;" data-secondary="LINK" data-alpha="">X,T,&theta;,&#119899;</div>
-						<div class="key" data-primary="STAT" data-secondary="LIST" data-alpha="">STAT</div>
+						<div class="key" data-primary="STAT" data-secondary="LIST" data-alpha="" data-type="menu">STAT</div>
 					</div>
 					<div class="navigation">
-						<div class="key nav-key up" data-primary="&#9650;" data-secondary="Brighten Screen" data-alpha="Scroll UP">&#9650;</div>
-						<div class="key nav-key left" data-primary="&#9668;" data-secondary="" data-alpha="">&#9668;</div>
-						<div class="key nav-key right" data-primary="&#9658;" data-secondary="">&#9658;</div>
-						<div class="key nav-key down" data-primary="&#9660;" data-secondary="Darken Screen" data-alpha="Scroll DOWN">&#9660;</div>
+						<div class="key nav-key up" data-primary="&#9650;" data-secondary="Brighten Screen" data-alpha="Scroll UP" data-type="control">&#9650;</div>
+						<div class="key nav-key left" data-primary="&#9668;" data-secondary="" data-alpha="" data-type="control">&#9668;</div>
+						<div class="key nav-key right" data-primary="&#9658;" data-secondary="" data-type="control">&#9658;</div>
+						<div class="key nav-key down" data-primary="&#9660;" data-secondary="Darken Screen" data-alpha="Scroll DOWN" data-type="control">&#9660;</div>
 					</div>
 				</div>
 				<div class="advanced-function">
-					<div class="key" data-primary="MATH" data-secondary="TEST" data-alpha="A">MATH</div>
-					<div class="key blue-key" data-primary="APPS" data-secondary="ANGLE" data-alpha="B">APPS</div>
-					<div class="key" data-primary="PRGM" data-secondary="DRAW" data-alpha="C">PRGM</div>
-					<div class="key" data-primary="VARS" data-secondary="DISTR" data-alpha="">VARS</div>
-					<div class="key" data-primary="CLEAR" data-secondary="" data-alpha="">CLEAR</div>
+					<div class="key" data-primary="MATH" data-secondary="TEST" data-alpha="A" data-type="menu">MATH</div>
+					<div class="key blue-key" data-primary="APPS" data-secondary="ANGLE" data-alpha="B" data-type="menu">APPS</div>
+					<div class="key" data-primary="PRGM" data-secondary="DRAW" data-alpha="C" data-type="menu">PRGM</div>
+					<div class="key" data-primary="VARS" data-secondary="DISTR" data-alpha="" data-type="menu">VARS</div>
+					<div class="key" data-primary="CLEAR" data-secondary="" data-alpha="" data-type="control">CLEAR</div>
 				</div>
 				<div class="trigonometry">
 					<div class="key" data-primary="x&#8315;&sup1;" data-secondary="MATRX" data-alpha="D" data-primary-content="&#8315;&sup1;">x&#8315;&sup1;</div>
@@ -153,7 +153,7 @@
 					<div class="key" data-primary="0" data-secondary="CATALOG" data-alpha="␣">0</div>
 					<div class="key" data-primary="." data-secondary="&#119894;" data-alpha=":">.</div>
 					<div class="key" data-primary="(-)" data-secondary="ANS" data-alpha="?">(-)</div>
-					<div id="ajaxButton" class="key blue-key" data-primary="ENTER" data-secondary="ENTRY" data-alpha="SOLVE">ENTER</div>
+					<div id="ajaxButton" class="key blue-key" data-primary="ENTER" data-secondary="ENTRY" data-alpha="SOLVE" data-type="control">ENTER</div>
 				</div>
 			</div>
 		</div>
@@ -192,13 +192,23 @@
 						}
 					}
 
-					var data = this.getAttribute('data-primary-content');
+					var buttonType = this.getAttribute('data-type');
 
-					if (!data) {
-						data = this.getAttribute('data-primary');
+					if (buttonType === 'menu') {
+						// TODO
 					}
+					else if (buttonType == 'control') {
+						// TODO
+					}
+					else {
+						var data = this.getAttribute('data-primary-content');
 
-					screenElement.innerHTML += data;
+						if (!data) {
+							data = this.getAttribute('data-primary');
+						}
+
+						screenElement.innerHTML += data;
+					}
 				});
 			}
 
