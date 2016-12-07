@@ -55,7 +55,7 @@ public class CalculatorServlet extends HttpServlet{
 				replaceExpression = expressionRecord.getValue();
 			}
 
-			expression = expression.replaceFirst(_ANS, replaceExpression);
+			expression = expression.replace(_ANS, replaceExpression);
 		}
 
 		return expression;
