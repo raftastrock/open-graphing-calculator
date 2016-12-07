@@ -25,33 +25,33 @@ public class CalculatorServlet extends HttpServlet{
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws IOException {
 
+		PrintWriter out = response.getWriter();
+
 		String expression = request.getParameter("expression");
-		String output = null;
-		
+
 		expression = processExpression(expression);
-		
+
 		try {
 			BigDecimal result = new Expression(expression).eval();
 
 			output = result.toString();
 
 			_expressionRecords.add(expression, output);
+
+			out.print(output);
 		}
 		catch (Exception e) {
-			output = e.getMessage();
+			out.print(e.getMessage());
 		}
-		
-		PrintWriter out = response.getWriter();
-		out.println(output);
 	}
-	
+
 	private String processExpression(String expression) {
-		if (expression.contains(_ANS)) { 
+		if (expression.contains(_ANS)) {
 			String replaceExpression = "";
 
 			ExpressionRecord expressionRecord = _expressionRecords.getLatest();
 
-			if (expressionRecord != null) { 
+			if (expressionRecord != null) {
 				replaceExpression = expressionRecord.getValue();
 			}
 

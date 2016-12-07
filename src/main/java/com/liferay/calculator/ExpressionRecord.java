@@ -16,7 +16,6 @@ public class ExpressionRecord {
 	}
 
 	private String _expression;
-
 	private String _value;
 
 }

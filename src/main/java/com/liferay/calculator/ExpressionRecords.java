@@ -7,15 +7,13 @@ import java.util.LinkedList;
 public class ExpressionRecords {
 
 	public ExpressionRecords() {
-		_expressionRecords = new LinkedList<ExpressionRecord>(); 
+		_expressionRecords = new LinkedList<ExpressionRecord>();
 	}
 
 	public void add(String expression, String value) {
-		ExpressionRecord expressionRecord = new ExpressionRecord(expression, value);
+		_expressionRecords.add(new ExpressionRecord(expression, value));
 
-		_expressionRecords.add(expressionRecord);
-
-		if (_expressionRecords.size() > 20) {
+		if (_expressionRecords.size() > MAX_SIZE) {
 			_expressionRecords.removeFirst();
 		}
 	}
@@ -24,8 +22,8 @@ public class ExpressionRecords {
 		return _expressionRecords.peekLast();
 	}
 
-	private LinkedList<ExpressionRecord> _expressionRecords;
+	private static final int MAX_SIZE = 20;
 
-	private final int MAX_SIZE = 20;
+	private LinkedList<ExpressionRecord> _expressionRecords;
 
 }
