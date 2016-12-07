@@ -33,20 +33,15 @@ public class CalculatorServlet extends HttpServlet {
 
 			out.print(view.getData());
 		}
-		catch (JSONException je) {
-			je.printStackTrace();
+		catch (JSONException|RuntimeException e) {
+			e.printStackTrace();
 
-			out.print(je.toString());
-		}
-		catch (RuntimeException re) {
-			re.printStackTrace();
-
-			out.print(re.getMessage());
+			out.print("Something went wrong...");
 		}
 		catch (SyntaxErrorException see) {
 			see.printStackTrace();
 
-			out.print(see.getMessage());
+			out.print("Syntax Error");
 		}
 		finally {
 			out.flush();
