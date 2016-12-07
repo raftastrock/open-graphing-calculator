@@ -244,7 +244,9 @@
 				function alertContents() {
 					if (httpRequest.readyState === XMLHttpRequest.DONE) {
 						if (httpRequest.status === 200) {
-                            screenElement.innerHTML = httpRequest.responseText;
+                            var tidy = httpRequest.responseText;
+                            tidy = JSON.parse(tidy);
+                            screenElement.innerHTML = tidy.output;
 						} else {
 							alert('There was a problem with the request.');
 						}
