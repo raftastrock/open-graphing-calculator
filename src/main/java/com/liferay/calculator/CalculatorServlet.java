@@ -14,6 +14,8 @@ public class CalculatorServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws IOException {
 
+		response.setContentType("application/json; charset=UTF-8");
+
 		PrintWriter out = response.getWriter();
 
 		String viewLabel = request.getParameter("view");
@@ -36,10 +38,18 @@ public class CalculatorServlet extends HttpServlet {
 
 			out.print(je.toString());
 		}
+		catch (RuntimeException re) {
+			re.printStackTrace();
+
+			out.print(re.getMessage());
+		}
 		catch (SyntaxErrorException see) {
 			see.printStackTrace();
 
 			out.print(see.getMessage());
+		}
+		finally {
+			out.flush();
 		}
 	}
 
