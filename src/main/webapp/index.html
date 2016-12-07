@@ -77,13 +77,23 @@
 			#keypad.secondary-toggle .key[data-secondary=''] {
 				color: gray;
 			}
+
+			#screen {
+				position:relative;
+			}
+
+			#screen .entry-text {
+				bottom: 0px;
+				position: absolute;
+				right: 0px;
+			}
 		</style>
 		<title>Calculator</title>
 	</head>
 	<body>
 		<div id="calculatorWrapper">
 			<div id="screen">
-				2*2
+				<div class="entry-text">2*2</div>
 			</div>
 
 			<div id="keypad">
@@ -156,6 +166,7 @@
 		<script>
 			var keys = document.querySelectorAll('.key');
 			var keypadWrapper = document.querySelector('#keypad');
+			var screen = document.querySelector('.entry-text');
 
 			for (var i = 0; i < keys.length; i++) {
 				keys[i].addEventListener('click', function(event) {
@@ -192,7 +203,6 @@
 			(function() {
 				var httpRequest;
 				document.getElementById("ajaxButton").onclick = function() {
-					var screen = document.querySelector('#screen');
 					var entry = screen.innerHTML;
 
 					makeRequest('/open-graphing-calculator/api?expression=' + entry);
