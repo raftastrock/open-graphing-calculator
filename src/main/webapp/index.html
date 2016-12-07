@@ -79,78 +79,81 @@
 			}
 
 			#screen {
-				position:relative;
+				font-family: monospace;
+				font-size: 3em;
+				word-break: break-all;
+                position: relative;
 			}
 
-			#screen .entry-text {
-				bottom: 0px;
-				position: absolute;
-				right: 0px;
-			}
+            #screen .entry-text {
+                bottom: 0px;
+                position: absolute;
+                right: 0px;
+            }
 		</style>
 		<title>Calculator</title>
 	</head>
 	<body>
 		<div id="calculatorWrapper">
 			<div id="screen">
-				<div class="entry-text">2*2</div>
+				<div class="entry-text"></div>
 			</div>
 
 			<div id="keypad">
 				<div class="graphing">
-					<div class="key" data-primary="Y=" data-secondary="STAT PLOT" data-alpha="F1">Y=</div>
-					<div class="key" data-primary="WINDOW" data-secondary="TBLSET" data-alpha="F2">WINDOW</div>
-					<div class="key" data-primary="ZOOM" data-secondary="FORMAT" data-alpha="F3">ZOOM</div>
-					<div class="key" data-primary="TRACE" data-secondary="CALC" data-alpha="F4">TRACE</div>
-					<div class="key" data-primary="GRAPH" data-secondary="TABLE" data-alpha="F5">GRAPH</div>
+					<div class="key" data-primary="Y=" data-secondary="STAT PLOT" data-alpha="F1" data-type="menu">Y=</div>
+					<div class="key" data-primary="WINDOW" data-secondary="TBLSET" data-alpha="F2" data-type="menu">WINDOW</div>
+					<div class="key" data-primary="ZOOM" data-secondary="FORMAT" data-alpha="F3" data-type="menu">ZOOM</div>
+					<div class="key" data-primary="TRACE" data-secondary="CALC" data-alpha="F4" data-type="menu">TRACE</div>
+					<div class="key" data-primary="GRAPH" data-secondary="TABLE" data-alpha="F5" data-type="menu">GRAPH</div>
 				</div>
 				<div class="editing">
 					<div class="edit-keys">
-						<div class="key second-function" data-primary="2nd" data-secondary="" data-alpha="">2nd</div>
-						<div class="key" data-primary="MODE" data-secondary="QUIT" data-alpha="">MODE</div>
-						<div class="key" data-primary="DEL" data-secondary="INS" data-alpha="">DEL</div>
-						<div class="key alpha-function" data-primary="ALPHA" data-secondary="A-LOCK" data-alpha="">ALPHA</div>
+						<div class="key second-function" data-primary="2nd" data-secondary="" data-alpha="" data-type="control">2nd</div>
+						<div class="key" data-primary="MODE" data-secondary="QUIT" data-alpha="" data-type="menu">MODE</div>
+						<div class="key" data-primary="DEL" data-secondary="INS" data-alpha="" data-type="control">DEL</div>
+						<div class="key alpha-function" data-primary="ALPHA" data-secondary="A-LOCK" data-alpha="" data-type="control">ALPHA</div>
 						<div class="key" data-primary="X,T,&theta;,&#119899;" data-secondary="LINK" data-alpha="">X,T,&theta;,&#119899;</div>
-						<div class="key" data-primary="STAT" data-secondary="LIST" data-alpha="">STAT</div>
+						<div class="key" data-primary="STAT" data-secondary="LIST" data-alpha="" data-type="menu">STAT</div>
 					</div>
 					<div class="navigation">
-						<div class="key nav-key up" data-primary="&#9650;" data-secondary="Brighten Screen" data-alpha="Scroll UP">&#9650;</div>
-						<div class="key nav-key left" data-primary="&#9668;" data-secondary="" data-alpha="">&#9668;</div>
-						<div class="key nav-key right" data-primary="&#9658;" data-secondary="">&#9658;</div>
-						<div class="key nav-key down" data-primary="&#9660;" data-secondary="Darken Screen" data-alpha="Scroll DOWN">&#9660;</div>
+						<div class="key nav-key up" data-primary="&#9650;" data-secondary="Brighten Screen" data-alpha="Scroll UP" data-type="control">&#9650;</div>
+						<div class="key nav-key left" data-primary="&#9668;" data-secondary="" data-alpha="" data-type="control">&#9668;</div>
+						<div class="key nav-key right" data-primary="&#9658;" data-secondary="" data-type="control">&#9658;</div>
+						<div class="key nav-key down" data-primary="&#9660;" data-secondary="Darken Screen" data-alpha="Scroll DOWN" data-type="control">&#9660;</div>
 					</div>
 				</div>
 				<div class="advanced-function">
-					<div class="key" data-primary="MATH" data-secondary="TEST" data-alpha="A">MATH</div>
-					<div class="key blue-key" data-primary="APPS" data-secondary="ANGLE" data-alpha="B">APPS</div>
-					<div class="key" data-primary="PRGM" data-secondary="DRAW" data-alpha="C">PRGM</div>
-					<div class="key" data-primary="VARS" data-secondary="DISTR" data-alpha="">VARS</div>
-					<div class="key" data-primary="CLEAR" data-secondary="" data-alpha="">CLEAR</div>
+					<div class="key" data-primary="MATH" data-secondary="TEST" data-alpha="A" data-type="menu">MATH</div>
+					<div class="key blue-key" data-primary="APPS" data-secondary="ANGLE" data-alpha="B" data-type="menu">APPS</div>
+					<div class="key" data-primary="PRGM" data-secondary="DRAW" data-alpha="C" data-type="menu">PRGM</div>
+					<div class="key" data-primary="VARS" data-secondary="DISTR" data-alpha="" data-type="menu">VARS</div>
+					<div class="key" data-primary="CLEAR" data-secondary="" data-alpha="" data-type="control">CLEAR</div>
 				</div>
 				<div class="trigonometry">
-					<div class="key" data-primary="x&#8315;&sup1;" data-secondary="MATRX" data-alpha="D">x&#8315;&sup1;</div>
-					<div class="key" data-primary="SIN" data-secondary="SIN&#8315;&sup1;" data-alpha="E">SIN</div>
-					<div class="key" data-primary="COS" data-secondary="COS&#8315;&sup1;" data-alpha="F">COS</div>
-					<div class="key" data-primary="TAN" data-secondary="TAN&#8315;&sup1;" data-alpha="G">TAN</div>
+					<div class="key" data-primary="x&#8315;&sup1;" data-secondary="MATRX" data-alpha="D" data-primary-content="&#8315;&sup1;">x&#8315;&sup1;</div>
+					<div class="key" data-primary="SIN" data-secondary="SIN&#8315;&sup1;" data-alpha="E" data-primary-content="sin(">SIN</div>
+					<div class="key" data-primary="COS" data-secondary="COS&#8315;&sup1;" data-alpha="F" data-primary-content="cos(">COS</div>
+					<div class="key" data-primary="TAN" data-secondary="TAN&#8315;&sup1;" data-alpha="G" data-primary-content="tan(">TAN</div>
 					<div class="key" data-primary="^" data-secondary="&pi;" data-alpha="H">^</div>
 				</div>
 				<div class="standard-calculator">
-					<div class="key" data-primary="x&sup2;" data-secondary="√" data-alpha="I">x&sup2;</div>
+					<div class="key" data-primary="x&sup2;" data-secondary="√" data-alpha="I" data-primary-content="&sup2;">x&sup2;</div>
 					<div class="key" data-primary="," data-secondary="EE" data-alpha="J">,</div>
 					<div class="key" data-primary="(" data-secondary="{" data-alpha="K">(</div>
 					<div class="key" data-primary=")" data-secondary="}" data-alpha="L">)</div>
-					<div class="key blue-key" data-primary="÷" data-secondary="e" data-alpha="M">÷</div>
-					<div class="key" data-primary="LOG" data-secondary="10ˣ" data-alpha="N">LOG</div>
+					<div class="key blue-key" data-primary="÷" data-secondary="e" data-alpha="M" data-primary-content="/">÷</div>
+					<div class="key" data-primary="LOG" data-secondary="10ˣ" data-alpha="N" data-primary-content="log(">LOG</div>
 					<div class="key" data-primary="7" data-secondary="u" data-alpha="O">7</div>
 					<div class="key" data-primary="8" data-secondary="v" data-alpha="P">8</div>
 					<div class="key" data-primary="9" data-secondary="w" data-alpha="Q">9</div>
-					<div class="key blue-key" data-primary="x" data-secondary="[" data-alpha="R">x</div>
-					<div class="key" data-primary="LN" data-secondary="eˣ" data-alpha="S">LN</div>
+					<div class="key blue-key" data-primary="&times;" data-secondary="[" data-alpha="R">&times;</div>
+					<div class="key" data-primary="LN" data-secondary="eˣ" data-alpha="S" data-primary-content="ln(">LN</div>
 					<div class="key" data-primary="4" data-secondary="L4" data-alpha="T">4</div>
 					<div class="key" data-primary="5" data-secondary="L5" data-alpha="U">5</div>
 					<div class="key" data-primary="6" data-secondary="L6" data-alpha="V">6</div>
 					<div class="key blue-key" data-primary="&minus;" data-secondary="]" data-alpha="W">&minus;</div>
-					<div class="key" data-primary="STO &#10151;" data-secondary="RCL" data-alpha="X">STO &#10151;</div>
+					<div class="key" data-primary="STO &#10151;" data-secondary="RCL" data-alpha="X" data-primary-content="&#9205;">STO &#10151;</div>
 					<div class="key" data-primary="1" data-secondary="L1" data-alpha="Y">1</div>
 					<div class="key" data-primary="2" data-secondary="L2" data-alpha="Z">2</div>
 					<div class="key" data-primary="3" data-secondary="L3" data-alpha="&theta;">3</div>
@@ -159,14 +162,14 @@
 					<div class="key" data-primary="0" data-secondary="CATALOG" data-alpha="␣">0</div>
 					<div class="key" data-primary="." data-secondary="&#119894;" data-alpha=":">.</div>
 					<div class="key" data-primary="(-)" data-secondary="ANS" data-alpha="?">(-)</div>
-					<div id="ajaxButton" class="key blue-key" data-primary="ENTER" data-secondary="ENTRY" data-alpha="SOLVE">ENTER</div>
+					<div id="ajaxButton" class="key blue-key" data-primary="ENTER" data-secondary="ENTRY" data-alpha="SOLVE" data-type="control">ENTER</div>
 				</div>
 			</div>
 		</div>
 		<script>
 			var keys = document.querySelectorAll('.key');
 			var keypadWrapper = document.querySelector('#keypad');
-			var screen = document.querySelector('.entry-text');
+			var screenElement = document.querySelector('.entry-text');
 
 			for (var i = 0; i < keys.length; i++) {
 				keys[i].addEventListener('click', function(event) {
@@ -197,13 +200,31 @@
 							}
 						}
 					}
+
+					var buttonType = this.getAttribute('data-type');
+
+					if (buttonType === 'menu') {
+						// TODO
+					}
+					else if (buttonType == 'control') {
+						// TODO
+					}
+					else {
+						var data = this.getAttribute('data-primary-content');
+
+						if (!data) {
+							data = this.getAttribute('data-primary');
+						}
+
+						screenElement.innerHTML += data;
+					}
 				});
 			}
 
 			(function() {
 				var httpRequest;
 				document.getElementById("ajaxButton").onclick = function() {
-					var entry = screen.innerHTML;
+					var entry = screenElement.innerHTML;
 
 					makeRequest('/open-graphing-calculator/api?expression=' + entry);
 				};
@@ -223,7 +244,7 @@
 				function alertContents() {
 					if (httpRequest.readyState === XMLHttpRequest.DONE) {
 						if (httpRequest.status === 200) {
-                            screen.innerHTML = httpRequest.responseText;
+                            screenElement.innerHTML = httpRequest.responseText;
 						} else {
 							alert('There was a problem with the request.');
 						}
