@@ -34,7 +34,7 @@ public class CalculatorServlet extends HttpServlet{
 		try {
 			BigDecimal result = new Expression(expression).eval();
 
-			output = result.toString();
+			String output = result.toString();
 
 			_expressionRecords.add(expression, output);
 
