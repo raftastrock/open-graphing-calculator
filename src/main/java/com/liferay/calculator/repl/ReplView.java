@@ -1,5 +1,6 @@
 package com.liferay.calculator.repl;
 
+import com.liferay.calculator.Factory;
 import com.liferay.calculator.View;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,8 @@ public class ReplView implements View {
 	public JSONObject getData() throws JSONException {
 		JSONObject jsonObject = new JSONObject();
 
-		ReplDataManager rdm = ReplDataManager.getInstance();
+		ReplDataManager rdm =
+			(ReplDataManager)Factory.DataManagerInstance.REPL.getDataManager();
 
 		ExpressionRecords expressionRecords = rdm.getExpressionRecords();
 

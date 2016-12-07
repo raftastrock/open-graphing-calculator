@@ -16,10 +16,6 @@ public class ReplDataManager implements DataManager {
 		_expressionRecords = new ExpressionRecords();
 	}
 
-	public static ReplDataManager getInstance() {
-		return _INSTANCE;
-	}
-
 	public ExpressionRecords getExpressionRecords() {
 		return _expressionRecords;
 	}
@@ -59,8 +55,6 @@ public class ReplDataManager implements DataManager {
 	}
 
 	private static final String _ANS = "Ans";
-
-	private static final ReplDataManager _INSTANCE = new ReplDataManager();
 
 	private ExpressionRecords _expressionRecords;
 

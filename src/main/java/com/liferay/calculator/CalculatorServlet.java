@@ -1,19 +1,12 @@
 package com.liferay.calculator;
 
-import com.liferay.calculator.repl.ReplDataManager;
-import com.liferay.calculator.repl.ReplView;
-
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import java.math.BigDecimal;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletException;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 
 public class CalculatorServlet extends HttpServlet {
@@ -23,12 +16,18 @@ public class CalculatorServlet extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 
-		DataManager dm = ReplDataManager.getInstance();
+		String viewLabel = request.getParameter("view");
+
+		if ((viewLabel == null) || viewLabel.isEmpty()) {
+			viewLabel = "repl";
+		}
+
+		DataManager dm = Factory.getDataManager(viewLabel);
 
 		try {
 			dm.update(request);
 
-			View view = new ReplView();
+			View view = Factory.getView(viewLabel);
 
 			out.print(view.getData());
 		}
